@@ -44,4 +44,10 @@ app.post("/livros", (req, res) => {
     res.status(201).send("Cadastrado com sucesso!")
 });
 
+app.delete("/livros/:id", (req, res) => {
+    const index = buscarLivro(req.params.id);
+    livros.splice(index, 1);
+    res.status(200).send("Excluído com Sucesso!");
+})
+
 export default app;
